@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Todo</title>
+	<link rel="stylesheet" href="project.css">
+	<script src='https://code.jquery.com/jquery-2.2.4.js'></script>
+</head>
+<body>
+<div class="login-box">
+	<h1 class="h1">Login</h1>
+	<div class="textbox">
+		<i class="fa fa-user" aria-hidden="true"></i>
+		<input class = 'UsernameLog'type="text" placeholder="Username" name="" value="">
+	</div>
+	<div class="textbox">
+		<i class="fa fa-lock" aria-hidden="true"></i>
+		<input class = 'PasswordLog' type="password" placeholder="Password" name="" value="">
+	</div>
+	<input class="btn" type="button" name="" value="Sign in">
+
+	<div class='fade'>
+	<h1 class="h11">You dont have an account? Create an account</h1>
+	<div class="textbox">
+		<i class="fa fa-user" aria-hidden="true"></i>
+		<input class = 'UsernameSign'type="text" placeholder="Username" name="" value="">
+	</div>
+	<div class="textbox">
+		<i class="fa fa-lock" aria-hidden="true"></i>
+		<input class = 'PasswordSign' type="password" placeholder="Password" name="" value="">
+	</div>
+	<input class="butn" type="button" name="" value="Create an account">
+</div>
+</div>
+    <script type="text/javascript">
+   var arrayUserName = []
+   var arrayPassword = []
+   var username = $('.UsernameSign').val()
+   var password = $('.PasswordSign').val()
+
+
+   $("#butn").click(function() {
+   	arrayUserName.push(username)
+   	arrayPassword.push(password)
+   	$('.fade').fadeIn(1000)
+   })
+
+   $("#btn").click(function() {
+
+   })
+    </script>
+</body>
+</html>
