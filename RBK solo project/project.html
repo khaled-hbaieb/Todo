@@ -17,37 +17,70 @@
 		<i class="fa fa-lock" aria-hidden="true"></i>
 		<input class = 'PasswordLog' type="password" placeholder="Password" name="" value="">
 	</div>
-	<input class="btn" type="button" name="" value="Sign in">
-
-	<div class='fade'>
-	<h1 class="h11">You dont have an account? Create an account</h1>
+	<button class="btn" type='button'>Log In</button><div class='enter'></div>
+		<h1 class="h1">Create an account</h1>
 	<div class="textbox">
 		<i class="fa fa-user" aria-hidden="true"></i>
-		<input class = 'UsernameSign'type="text" placeholder="Username" name="" value="">
+		<input id = 'UsernameAdd'type="text" placeholder="Username" name="" value="">
 	</div>
 	<div class="textbox">
 		<i class="fa fa-lock" aria-hidden="true"></i>
-		<input class = 'PasswordSign' type="password" placeholder="Password" name="" value="">
+		<input id = 'PasswordAdd' type="password" placeholder="Password" name="" value="">
 	</div>
-	<input class="butn" type="button" name="" value="Create an account">
+	<button id="bttn" type='button'>sign In</button>
+
 </div>
-</div>
-    <script type="text/javascript">
-   var arrayUserName = []
-   var arrayPassword = []
-   var username = $('.UsernameSign').val()
-   var password = $('.PasswordSign').val()
+    <script>
+let logins = []
+let pass = []
+$('.btn').click(function() {
+   	var username = $('.UsernameLog').val()
+   var password = $('.PasswordLog').val()
+   		for(var i = 0; i < users.length; i++) {
+		if(username === users[i]['userName'] && password == users[i]['password']) {
+			$('.enter').append('<a href="project1.html"><strong>Welcome Back ' + username +'</strong></a>')
+			return;
+			}		
+		}
+	alert("incorrect username or password")
 
+})
 
-   $("#butn").click(function() {
-   	arrayUserName.push(username)
-   	arrayPassword.push(password)
-   	$('.fade').fadeIn(1000)
-   })
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
-   $("#btn").click(function() {
+$('#bttn').click(function click() {
+   	var username = $('#UsernameAdd').val()
+   
+   var password = $('#PasswordAdd').val()
+   
+		if(username.length  < 3 || password.length < 3) {
+	alert("incorrect username or password")
+}
+else {
+	users.push({userName: username, password: password})
+	$('#UsernameAdd').val('')
+	
+	$('#PasswordAdd').val('')
+}
+})
+let users = localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [];
+var k;
+localStorage
 
-   })
+        const addUser = (ev)=>{
+            ev.preventDefault();  //to stop the form submitting
+            let user = {
+                userName: document.getElementById('UsernameAdd').value,
+                password: document.getElementById('PasswordAdd').value
+            }
+            users.push(user);
+
+            localStorage.setItem('users', JSON.stringify(users) );
+        }
+        document.addEventListener('DOMContentLoaded', ()=>{
+            document.getElementById('bttn').addEventListener('click', addUser);
+        });
+
     </script>
 </body>
 </html>

@@ -1,0 +1,102 @@
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+
+.container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-top: 2rem;
+	color: white;
+}
+
+body{
+    height: 100%;
+	background: url(blurr.jpg) no-repeat;
+	background-size: cover;	
+    box-sizing: border-box;
+}
+
+h1 {
+	color: #fff;
+	font-size: 3rem;
+	font-weight: 50;
+	text-align: center;
+	margin: 1rem 0 3rem; 
+	font-family: 'Hind', sans-serif;
+}
+
+.input{
+    padding: 0.5rem 1rem;
+    outline: none;
+    border: none;
+    height: 50px;
+    border-radius: 25px;
+    width: 350px;
+    margin: 0.25rem;
+    transition: .5s;
+    font-size: 1.15rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.inputDiv{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.add{
+    outline: none;
+    border: none;
+    height: 50px;
+    border-radius: 25px;
+    width: 50px;
+    background-color: lime;
+    color: white;
+    cursor: pointer;
+    transition: .5s;
+    margin: 0.25rem;
+}
+
+.remove{
+    background: none;
+    outline: none;
+    border: none;
+    color: red;
+    font-size: 1.4rem;
+    font-family: 'Hind', sans-serif;
+    cursor: pointer;
+}
+
+.title {
+    color: dodgerblue;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 2rem;
+    color: blue;
+    cursor: pointer;
+}
+
+.comeBack {
+   outline: none;
+    border: none;
+    height: 50px;
+    border-radius: 25px;
+    width: 50px;
+    background-color: lime;
+    color: white;
+    cursor: pointer;
+    transition: .5s;
+    margin: 0.25rem; 
+}
