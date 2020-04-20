@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Todo</title>
+	<link rel="stylesheet" href="project.css">
+	<script src='https://code.jquery.com/jquery-2.2.4.js'></script>
+</head>
+<body>
+<div class="login-box">
+	<h1 class="h1">Login</h1>
+	<div class="textbox">
+		<i class="fa fa-user" aria-hidden="true"></i>
+		<input class = 'UsernameLog'type="text" placeholder="Username" name="" value="">
+	</div>
+	<div class="textbox">
+		<i class="fa fa-lock" aria-hidden="true"></i>
+		<input class = 'PasswordLog' type="password" placeholder="Password" name="" value="">
+	</div>
+	<button class="btn" type='button'>Log In</button><div class='enter'></div>
+		<h1 class="h1">Create an account</h1>
+	<div class="textbox">
+		<i class="fa fa-user" aria-hidden="true"></i>
+		<input id = 'UsernameAdd'type="text" placeholder="Username" name="" value="">
+	</div>
+	<div class="textbox">
+		<i class="fa fa-lock" aria-hidden="true"></i>
+		<input id = 'PasswordAdd' type="password" placeholder="Password" name="" value="">
+	</div>
+	<button id="bttn" type='button'>sign In</button>
+
+</div>
+    <script>
+let logins = []
+let pass = []
+$('.btn').click(function() {
+   	var username = $('.UsernameLog').val()
+   var password = $('.PasswordLog').val()
+   		for(var i = 0; i < users.length; i++) {
+		if(username === users[i]['userName'] && password == users[i]['password']) {
+			$('.enter').append('<a href="project1.html"><strong>Welcome Back ' + username +'</strong></a>')
+			return;
+			}		
+		}
+	alert("incorrect username or password")
+
+})
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+$('#bttn').click(function click() {
+   	var username = $('#UsernameAdd').val()
+   
+   var password = $('#PasswordAdd').val()
+   
+		if(username.length  < 3 || password.length < 3) {
+	alert("incorrect username or password")
+}
+else {
+	users.push({userName: username, password: password})
+	$('#UsernameAdd').val('')
+	
+	$('#PasswordAdd').val('')
+}
+})
+
+// controlling the local storage
+let users = localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [];
+localStorage
+
+        const addUser = (ev)=>{
+            ev.preventDefault();  //to stop from submitting when value is empty 
+            let user = {
+                userName: document.getElementById('UsernameAdd').value,
+                password: document.getElementById('PasswordAdd').value
+            }
+            users.push(user);
+
+            localStorage.setItem('users', JSON.stringify(users) );
+        }
+        document.addEventListener('DOMContentLoaded', ()=>{
+            document.getElementById('bttn').addEventListener('click', addUser);
+        });
+
+    </script>
+</body>
+</html>

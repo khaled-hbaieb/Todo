@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>TODO List</title>
+    <script src='https://code.jquery.com/jquery-2.2.4.js'></script>
+    <link rel="stylesheet" href="project1.css">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+</head>
+<body>
+    <div class='clock'>
+        <iframe src="http://free.timeanddate.com/clock/i790yguo/n4025/szw110/szh110/hoc000/hbw0/hfc09f/cf100/hnc07c/hwc000/facfff/fdi76/mqcfff/mqs4/mql18/mqw4/mqd60/mhcfff/mhs4/mhl5/mhw4/mhd62/mmv0/hhcfff/hhs1/hhb10/hmcfff/hms1/hmb10/hscfff/hsw3" frameborder="0" width="140" height="140"></iframe>
+
+    </div>
+    <h1><span class="title">Todo</span>List</h1>
+    <div class='back'><button class="comeBack"><i class="fas fa-arrow-circle-left"></i></button></div>
+    <div class="inputDiv">
+    	   <input type="text" id="input" placeholder="What Do You Want to Do...">
+    	   <button id="add"><i class="fas fa-plus-circle"></i></button>
+    </div>
+    <div class="container">
+    </div>
+
+    <div class='footer'>
+        <button class="footer"><i class="fas fa-trash-alt"></i></button>
+        <p color: red>Click to delete the list</p>
+    </div>
+
+
+
+
+    <script>
+
+    
+        $('#add').click(function(){
+            var input = $('#input').val()
+
+            if(input.length > 3) {
+
+                $('.container').append('<div id="div">' + input +'<button class="remove" onclick="remove()"><i class="far fa-trash-alt"></i></button><hr></div>')
+                $('#input').val("")
+            }
+            
+        })
+
+
+        $('.comeBack').click(function() {
+            $('.back').append('<a href="project.html"><strong>Do you want to log OFF !?</strong></a>')
+        })
+        // LocalStorage
+        let todos = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [];
+var k;
+localStorage
+
+        const addtodo = (ev)=>{
+            ev.preventDefault();  //to stop the form submitting
+            let todo = {
+                todo: $('#div').text()   
+            }
+            todos.push(todo);
+
+            localStorage.setItem('todos', JSON.stringify(todos) );
+        }
+        document.addEventListener('DOMContentLoaded', ()=>{
+            document.getElementById('add').addEventListener('click', addtodo);
+        });
+
+               for(var z = 0; z < todos.length; z++) {
+                var todoos = [...todos]
+        $('.container').append('<div id="div">' + todoos[z]['todo'] + '<button class="remove" onclick="remove()"><i class="far fa-trash-alt"></i></button><hr></div>')
+        todoos.slice(1)
+    }
+
+
+        $('.footer').click(function() {
+            $('.container').html('')
+            localStorage.removeItem('todos') // remove targeted imtem from local storage
+        })
+    </script>
+</body>
+</html>
