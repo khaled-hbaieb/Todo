@@ -27,7 +27,7 @@
 		<i class="fa fa-lock" aria-hidden="true"></i>
 		<input id = 'PasswordAdd' type="password" placeholder="Password" name="" value="">
 	</div>
-	<button id="bttn" type='button'>sign In</button>
+	<button id="bttn" type='button'>sign Up</button>
 
 </div>
     <script>
@@ -35,7 +35,7 @@
 $('.btn').click(function() {
    	var username = $('.UsernameLog').val()
    var password = $('.PasswordLog').val()
-   		for(var i = 0; i < users.length; i++) {
+   		for(var i = 0; i < users.length; i++) {  //loop in the local storage (array of users) and check for userName and password
 		if(username === users[i]['userName'] && password == users[i]['password']) {
 			$('.enter').append('<a href="project1.html"><strong>Welcome Back ' + username +'</strong></a>')
 			return;
@@ -48,7 +48,7 @@ $('.btn').click(function() {
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 $('#bttn').click(function click() {
-   	var username = $('#UsernameAdd').val()
+   	var username = $('#UsernameAdd').val() 
    
    var password = $('#PasswordAdd').val()
    

@@ -65,6 +65,7 @@ h1 {
     cursor: pointer;
     transition: .5s;
     margin: 0.25rem;
+    font-size: 40px
 }
 
 .remove{
@@ -129,4 +130,6 @@ li{
     color: black;
     font-weight: bold;
 }
+
+
 

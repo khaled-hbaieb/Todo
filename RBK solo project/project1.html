@@ -45,7 +45,7 @@
             var input = $('#input').val()
 
             if(input.length > 3) {
-                $('.Incomplete').append('<li>' + input +'</li>')
+                $('.Incomplete').append('<h4><li>' + input +'</li><h4>')
             }
             $('#input').val('')
         })
@@ -57,33 +57,33 @@
         // LocalStorage
         let todos = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [];
 
-localStorage
+        localStorage
 
         const addtodo = (ev)=>{
-            ev.preventDefault();  //to stop  from submitting when case is empty
+            ev.preventDefault();  //to stop  from submitting when case is empty (event)
             var todo = {
                 todo: $('li').last().text()  // get value only of the last li added into the local storage
             }
             todos.push(todo);
             //$('li').text('') 
-            localStorage.setItem('todos', JSON.stringify(todos) ); //when passed a key name and value, will add that key to the 
+            localStorage.setItem('todos', JSON.stringify(todos) );  //when passed a key name and value, will add that key to the 
                                                                    //given  Storage object, or update that key's value if it already exists.
         }
         document.addEventListener('DOMContentLoaded', ()=>{
             document.getElementById('add').addEventListener('click', addtodo);
         });
 
-               for(var z = 0; z < todos.length; z++) {    // to get the added todos when page is refreshed
-
-        $('.Incomplete').append('<li>' +todos[z]['todo'] + '</li>')
-    }
+            for(var z = 0; z < todos.length; z++) {         // to get the added todos when page is refreshed
+                $('.Incomplete').append('<h4><li>' +todos[z]['todo'] + '</li></h4>')
+            }
 
 
         $('.footer').click(function() {
             $('.Incomplete').html('')
-            localStorage.removeItem('todos')        // remove targeted imtem from local storage (by key)
-            $('.container').hide()                                        // in this case the key is our array : todos
-            //localStorage.clear() // clear all the local storage
+            localStorage.removeItem('todos')          // remove targeted imtem from local storage (by key)
+            $('.container').hide()   
+            todos = []                              // in this case the key is our array : todos
+            //localStorage.clear()                 // clear all the local storage
         })
 
 
