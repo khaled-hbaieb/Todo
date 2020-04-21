@@ -80,7 +80,9 @@ localStorage
 
         $('.footer').click(function() {
             $('.Incomplete').html('')
-            localStorage.removeItem('todos') // remove targeted imtem from local storage
+            localStorage.removeItem('todos')        // remove targeted imtem from local storage (by key)
+                                                    // in this case the key is our array : todos
+            //localStorage.clear() // clear all the local storage
         })
 
 
