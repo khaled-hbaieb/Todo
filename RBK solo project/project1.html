@@ -8,8 +8,7 @@
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </head>
 <body>
-    <div class='clock'>
-        <iframe src="http://free.timeanddate.com/clock/i790yguo/n4025/szw110/szh110/hoc000/hbw0/hfc09f/cf100/hnc07c/hwc000/facfff/fdi76/mqcfff/mqs4/mql18/mqw4/mqd60/mhcfff/mhs4/mhl5/mhw4/mhd62/mmv0/hhcfff/hhs1/hhb10/hmcfff/hms1/hmb10/hscfff/hsw3" frameborder="0" width="140" height="140"></iframe>
+
 
     </div>
     <h1><span class="title">Todo</span>List</h1>
@@ -18,19 +17,13 @@
            <input type="text" id="input" placeholder="What Do You Want to Do...">
            <button id="add"><i class="fas fa-plus-circle"></i></button>
     </div>
-    <div class="container">
-        <h2>Incomplete</h2><hr>
+    <center><div class="container">
+        <h2 class='inContainer'>Incomplete</h2>
         <div class='Incomplete'>
         
     </div>
-        <div>
-            <hr><h2>
-                Completed
-            </h2><hr>
-            <ul class = 'Completed'>
-            </ul>
-        </div>
-    </div>
+
+    </div></center>
 
     <div class='footer'>
         <button class="footer"><i class="fas fa-trash-alt"></i></button>
@@ -42,8 +35,13 @@
 
     <script>
 
-   
+        if($('li').text === undefined || $('li').text === ""){
+        $('.container').hide()
+        }
+
+
         $('#add').click(function() {
+            $('.container').show()
             var input = $('#input').val()
 
             if(input.length > 3) {
@@ -58,7 +56,7 @@
         })
         // LocalStorage
         let todos = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [];
-var k;
+
 localStorage
 
         const addtodo = (ev)=>{
@@ -68,13 +66,15 @@ localStorage
             }
             todos.push(todo);
             //$('li').text('') 
-            localStorage.setItem('todos', JSON.stringify(todos) );
+            localStorage.setItem('todos', JSON.stringify(todos) ); //when passed a key name and value, will add that key to the 
+                                                                   //given  Storage object, or update that key's value if it already exists.
         }
         document.addEventListener('DOMContentLoaded', ()=>{
             document.getElementById('add').addEventListener('click', addtodo);
         });
 
-               for(var z = 0; z < todos.length; z++) {                // to get the added todos when page is refreshed
+               for(var z = 0; z < todos.length; z++) {    // to get the added todos when page is refreshed
+
         $('.Incomplete').append('<li>' +todos[z]['todo'] + '</li>')
     }
 
@@ -82,7 +82,7 @@ localStorage
         $('.footer').click(function() {
             $('.Incomplete').html('')
             localStorage.removeItem('todos')        // remove targeted imtem from local storage (by key)
-                                                    // in this case the key is our array : todos
+            $('.container').hide()                                        // in this case the key is our array : todos
             //localStorage.clear() // clear all the local storage
         })
 

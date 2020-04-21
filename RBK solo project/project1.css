@@ -1,13 +1,17 @@
 @import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 
 .container{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+
+	width:50%;
 	align-items: center;
 	text-align: center;
 	margin-top: 2rem;
 	color: white;
+    border: 2px solid black;
+    border-radius: 20px; 
+    background-color: lightblue;
+    margin-bottom: 25px
+    
 }
 
 body{
@@ -90,8 +94,7 @@ h1 {
     align-items: center;
     text-align: center;
     margin-top: 2rem;
-    cursor: pointer
-
+    cursor: pointer;
 }
 
 
@@ -106,4 +109,24 @@ h1 {
     cursor: pointer;
     transition: .5s;
     margin: 0.25rem; 
+    font-size:30px
 }
+
+.href {
+    border: 2px solid black;
+  border-radius: 5px;
+  background-color: black
+}
+
+.inContainer {
+    color: mistyrose;
+    border-radius: 5px;
+    background-color: dodgerblue
+
+}
+
+li{
+    color: black;
+    font-weight: bold;
+}
+
