@@ -52,8 +52,9 @@
             $('#input').val('')
         })
 
-        $('.comeBack').click(function() {
-            $('.back').append('<a href="project.html"><strong>Do you want to log OFF !?</strong></a>')
+        $('.comeBack').click(function() { // to sign off and go back to the sign in page
+            $('.href').html('')
+            $('.back').append('<a class="href" href="project.html"><strong>Do you want to log OFF !?</strong></a>')
         })
         // LocalStorage
         let todos = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [];
