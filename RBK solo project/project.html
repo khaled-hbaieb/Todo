@@ -31,8 +31,7 @@
 
 </div>
     <script>
-let logins = []
-let pass = []
+
 $('.btn').click(function() {
    	var username = $('.UsernameLog').val()
    var password = $('.PasswordLog').val()
@@ -61,14 +60,16 @@ else {
 	$('#UsernameAdd').val('')
 	
 	$('#PasswordAdd').val('')
+	alert("You can Log in now")
 }
 })
+
+// controlling the local storage
 let users = localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [];
-var k;
 localStorage
 
         const addUser = (ev)=>{
-            ev.preventDefault();  //to stop the form submitting
+            ev.preventDefault();  //to stop from submitting when value is empty 
             let user = {
                 userName: document.getElementById('UsernameAdd').value,
                 password: document.getElementById('PasswordAdd').value
